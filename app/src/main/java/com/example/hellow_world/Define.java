@@ -6,8 +6,11 @@ package com.example.hellow_world;
 
 public class Define{
     private Define(){}
+    public static final int REQ_SUB1 = 1000;
+    public static final int REQ_SUBSUB1 = 1001;
 
-    public static final int REQ_SUBSUB2 = 2000;
+    public static final int REQ_SUB2 = 2000;
+    public static final int REQ_SUBSUB2 = 2001;
 
     public static final float BOX_LEFT = 0;
     public static final float BOX_RIGHT = 0;
