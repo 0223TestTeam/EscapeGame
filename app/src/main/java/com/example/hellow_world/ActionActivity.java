@@ -10,6 +10,7 @@ import android.view.View;
  */
 
 public class ActionActivity extends Activity{
+    int i=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
