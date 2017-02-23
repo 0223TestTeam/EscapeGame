@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import static com.example.hellow_world.Define.*;
+
 /**
  * Created by ServoRobo on 2017/02/23.
  */
@@ -33,21 +35,28 @@ public class MainActivity extends Activity {
             if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
                 Intent intent = new Intent(getApplication(),SubActivity1.class);
                 intent.putExtra("state",state);
-                startActivityForResult(intent , 1001);
+                startActivityForResult(intent , REQ_SUB1);
                 flag1 = true;
             }
         }else if (flag2==false){
             if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
                 Intent intent = new Intent(getApplication(),SubActivity2.class);
                 intent.putExtra("state",state);
-                startActivityForResult(intent , 1002);
+                startActivityForResult(intent , REQ_SUB2);
                 flag2 = true;
             }
-        }else if (flag3==false){
+        }else if (state[3]==0&&flag3==false){
             if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
                 Intent intent = new Intent(getApplication(),SubActivity3.class);
                 intent.putExtra("state",state);
-                startActivityForResult(intent , 1003);
+                startActivityForResult(intent , REQ_SUB3);
+                flag3 = true;
+            }
+        }else if(state[3]==1&&flag3==false){
+            if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
+                Intent intent = new Intent(getApplication(),SubActivity3.class);
+                intent.putExtra("state",state);
+                startActivityForResult(intent , REQ_SUB4);
                 flag3 = true;
             }
         }

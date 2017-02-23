@@ -12,6 +12,11 @@ public class Define{
     public static final int REQ_SUB2 = 2000;
     public static final int REQ_SUBSUB2 = 2001;
 
+    public static final int REQ_SUB3 = 3000;
+    public static final int REQ_SUBSUB3 = 3001;
+
+    public static final int REQ_SUB4 = 4000;
+
     public static final float BOX_LEFT = 0;
     public static final float BOX_RIGHT = 0;
     public static final float BOX_UP = 0;
