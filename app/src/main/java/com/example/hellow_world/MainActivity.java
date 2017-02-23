@@ -18,8 +18,6 @@ public class MainActivity extends Activity {
 
     int[] state = new int[3];
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

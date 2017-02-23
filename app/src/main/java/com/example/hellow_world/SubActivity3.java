@@ -12,8 +12,8 @@ import android.view.View;
  */
 
 public class SubActivity3 extends Activity{
+
     int[] state = new int[3];
-    boolean  end=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class SubActivity3 extends Activity{
         Intent intent = getIntent();
         // intentから指定キーの数字列を取得する
         intent.getIntArrayExtra("state");
+
     }
 
     public void back(View v){
@@ -35,10 +36,6 @@ public class SubActivity3 extends Activity{
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
-        if(end==true){
-            Intent intent = new Intent(getApplication(),EndActivity.class);
-            startActivityForResult(intent , 1003);
-        }
         return true;
     }
 }
