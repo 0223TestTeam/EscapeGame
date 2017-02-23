@@ -18,11 +18,19 @@ public class SubActivity1 extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opening);
+        setContentView(R.layout.activity_subactivity1);
         // 現在のintentを取得する
         Intent intent = getIntent();
         // intentから指定キーの数字列を取得する
         intent.getIntArrayExtra("state");
+
+        if (state[0] == 1) {
+            findViewById(R.id.imageView2).setVisibility(View.INVISIBLE);
+            findViewById(R.id.imageView).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.imageView2).setVisibility(View.VISIBLE);
+            findViewById(R.id.imageView).setVisibility(View.INVISIBLE);
+        }
     }
 
     public void back(View v){
