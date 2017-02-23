@@ -12,7 +12,7 @@ import android.view.View;
  */
 
 public class SubActivity1 extends Activity{
-
+    boolean flag=false;
     int[] state = new int[3];
 
     @Override
@@ -25,11 +25,11 @@ public class SubActivity1 extends Activity{
         intent.getIntArrayExtra("state");
 
         if (state[0] == 1) {
-            findViewById(R.id.imageView2).setVisibility(View.INVISIBLE);
-            findViewById(R.id.imageView).setVisibility(View.VISIBLE);
+            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
+            findViewById(R.id.background2).setVisibility(View.VISIBLE);
         } else {
-            findViewById(R.id.imageView2).setVisibility(View.VISIBLE);
-            findViewById(R.id.imageView).setVisibility(View.INVISIBLE);
+            findViewById(R.id.background1).setVisibility(View.VISIBLE);
+            findViewById(R.id.background2).setVisibility(View.INVISIBLE);
         }
     }
 
@@ -42,7 +42,17 @@ public class SubActivity1 extends Activity{
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+
         Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
+        if (flag==false){
+            if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
+                Intent intent = new Intent(getApplication(),SubActivity1.class);
+                intent.putExtra("state",state);
+                startActivityForResult(intent , 10011);
+                flag = true;
+            }
+        }
         return true;
     }
 }
