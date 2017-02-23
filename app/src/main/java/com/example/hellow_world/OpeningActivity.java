@@ -11,13 +11,13 @@ public class OpeningActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_opening);
 
         Button startButton = (Button) findViewById(R.id.start_button);
         startButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(OpeningActivity.this, Screen1Activity.class);
+                Intent intent = new Intent(OpeningActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

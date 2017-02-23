@@ -19,13 +19,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Screen1Activity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ActionActivity"
-            android:screenOrientation="portrait"/>
-
     </application>
 
 </manifest>
