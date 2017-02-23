@@ -13,7 +13,7 @@ import android.view.View;
 
 public class SubActivity1 extends Activity{
 
-    int[] state = new int[2];
+    int[] state = new int[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

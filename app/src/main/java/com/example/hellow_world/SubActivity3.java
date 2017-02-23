@@ -12,7 +12,7 @@ import android.view.View;
  */
 
 public class SubActivity3 extends Activity{
-    int[] state = new int[2];
+    int[] state = new int[3];
     boolean  end=false;
 
     @Override

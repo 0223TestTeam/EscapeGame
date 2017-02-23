@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
     boolean flag2 = false;
     boolean flag3 = false;
 
-    int[] state = new int[2];
+    int[] state = new int[3];
 
 
 
