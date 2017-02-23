@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 
 import static com.example.hellow_world.Define.*;
 
@@ -23,7 +24,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opening);
+        findViewById(R.id.background1).setVisibility(View.VISIBLE);
+        findViewById(R.id.background2).setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -31,6 +33,7 @@ public class MainActivity extends Activity {
 
 
         Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
+        /*
         if (flag1==false){
             if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
                 Intent intent = new Intent(getApplication(),SubActivity1.class);
@@ -60,6 +63,7 @@ public class MainActivity extends Activity {
                 flag3 = true;
             }
         }
+        */
         return true;
     }
 
