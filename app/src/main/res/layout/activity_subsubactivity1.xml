@@ -9,12 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/background1"
-        android:src="@drawable/tukuedarkness"/>
+        android:src="@drawable/hikidasidarkness"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/background2"
-        android:src="@drawable/tukuebright"/>
+        android:src="@drawable/hikidasibright"/>
 
     <LinearLayout android:orientation="horizontal"
         android:layout_width="fill_parent"

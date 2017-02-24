@@ -15,6 +15,7 @@ import static com.example.hellow_world.Define.*;
 
 public class SubActivity1 extends Activity{
     boolean flag=false;
+    boolean flag2=false;
     int[] state = new int[3];
 
     @Override
@@ -24,20 +25,14 @@ public class SubActivity1 extends Activity{
         // 現在のintentを取得する
         Intent intent = getIntent();
         // intentから指定キーの数字列を取得する
-        intent.getIntArrayExtra("state");
+        state=intent.getIntArrayExtra("state");
 
         if (state[0] == 0) {
             findViewById(R.id.background1).setVisibility(View.VISIBLE);
             findViewById(R.id.background2).setVisibility(View.INVISIBLE);
-            findViewById(R.id.background3).setVisibility(View.INVISIBLE);
-        } else if(state[0]==1&&state[1]==0){
+        } else if(state[0]==1){
             findViewById(R.id.background1).setVisibility(View.INVISIBLE);
             findViewById(R.id.background2).setVisibility(View.VISIBLE);
-            findViewById(R.id.background3).setVisibility(View.INVISIBLE);
-        }else if(state[1]==1&&state[1]==1) {
-            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
-            findViewById(R.id.background2).setVisibility(View.INVISIBLE);
-            findViewById(R.id.background3).setVisibility(View.VISIBLE);
         }
     }
 
@@ -53,28 +48,24 @@ public class SubActivity1 extends Activity{
 
 
         Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
-        if(state[0]==1) {
-            if (flag == false) {
-                if (1640 < event.getY() && event.getY() < 1950 && 400 < event.getX() && event.getX() < 830) {
-                    Intent intent = new Intent(getApplication(), SubActivity1.class);
-                    intent.putExtra("state", state);
-                    startActivityForResult(intent, REQ_SUBSUB1);
-                    flag = true;
-                }else if(state[1]==1){
-                    state[0]=1;
-                    findViewById(R.id.background1).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.background2).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.background3).setVisibility(View.VISIBLE);
-                }
-            }
+        if (flag == false&&200 < event.getY() && event.getY() < 350 && 400 < event.getX() && event.getX() < 800) {
+            Intent intent = new Intent(getApplication(), SubSubActivity1.class);
+            intent.putExtra("state", state);
+            startActivityForResult(intent, REQ_SUBSUB1);
+            flag = true;
+        }else if (flag2==false&&250 < event.getY() && event.getY() < 350 && 900 < event.getX() && event.getX() < 1300 &&state[1]==1) {
+            state[0]=1;
+            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
+            findViewById(R.id.background2).setVisibility(View.VISIBLE);
+            flag2=true;
         }
         return true;
     }
 
     protected void onActivityResult(int requestCode , int resultCode , Intent intent){
         super.onActivityResult(requestCode,resultCode,intent);
-        if (requestCode == RESULT_OK && resultCode == REQ_SUBSUB1  && intent != null){
-            intent.getIntArrayExtra("state");
+        if (resultCode == RESULT_OK && requestCode == REQ_SUBSUB1 && intent != null){
+            state=intent.getIntArrayExtra("state");
             flag = false;
         }
     }

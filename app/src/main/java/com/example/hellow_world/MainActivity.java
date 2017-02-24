@@ -2,10 +2,13 @@ package com.example.hellow_world;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import static com.example.hellow_world.Define.*;
 
@@ -24,8 +27,26 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        findViewById(R.id.background1).setVisibility(View.VISIBLE);
-        findViewById(R.id.background2).setVisibility(View.INVISIBLE);
+        setContentView(R.layout.activity_main);
+        if(state[0]==0){
+            findViewById(R.id.background1).setVisibility(View.VISIBLE);
+            findViewById(R.id.background2).setVisibility(View.INVISIBLE);
+        }else if(state[0]==1){
+            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
+            findViewById(R.id.background2).setVisibility(View.VISIBLE);
+        }
+
+    }
+
+
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        RelativeLayout r = (RelativeLayout)findViewById(R.id.layout1);
+        Point view = SizeCheck.getViewSize(r);
+        Point disp = SizeCheck.getDisplaySize(this);
+        Log.d("Size", "X:" + disp.x + ",Y:" + disp.y);
     }
 
     @Override
@@ -33,15 +54,15 @@ public class MainActivity extends Activity {
 
 
         Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
-        /*
+
         if (flag1==false){
-            if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
+            if (700<event.getY() && event.getY()<1080 && 500<event.getX() && event.getX()<900){
                 Intent intent = new Intent(getApplication(),SubActivity1.class);
                 intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB1);
                 flag1 = true;
             }
-        }else if (flag2==false){
+        }/*else if (flag2==false){
             if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
                 Intent intent = new Intent(getApplication(),SubActivity2.class);
                 intent.putExtra("state",state);
@@ -69,15 +90,20 @@ public class MainActivity extends Activity {
 
     protected void onActivityResult(int requestCode , int resultCode , Intent intent){
         super.onActivityResult(requestCode,resultCode,intent);
-        if (requestCode == RESULT_OK && resultCode == 1001 && intent != null){
-            intent.getIntArrayExtra("state");
+        state=intent.getIntArrayExtra("state");
+        if (resultCode == RESULT_OK && requestCode == REQ_SUB1 && intent != null){
+            if(state[0]==1){
+                findViewById(R.id.background1).setVisibility(View.INVISIBLE);
+                findViewById(R.id.background2).setVisibility(View.VISIBLE);
+            }
+
             flag1 = false;
         }
-        if (requestCode == RESULT_OK && resultCode == 1002 && intent != null){
+        if (resultCode == RESULT_OK && requestCode == REQ_SUB1 && intent != null){
             intent.getIntArrayExtra("state");
             flag2 = false;
         }
-        if (requestCode == RESULT_OK && resultCode == 1003 && intent != null){
+        if (resultCode == RESULT_OK && requestCode == REQ_SUB1 && intent != null){
             intent.getIntArrayExtra("state");
             flag3 = false;
         }
