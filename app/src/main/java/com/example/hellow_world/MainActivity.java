@@ -96,6 +96,7 @@ public class MainActivity extends Activity {
                 findViewById(R.id.background1).setVisibility(View.INVISIBLE);
                 findViewById(R.id.background2).setVisibility(View.VISIBLE);
             }
+            //
 
             flag1 = false;
         }
