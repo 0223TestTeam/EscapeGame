@@ -51,7 +51,7 @@ public class SubActivity2 extends Activity{
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
+/*
         float x, y;
         x = event.getX();
         y = event.getY();
@@ -89,7 +89,7 @@ public class SubActivity2 extends Activity{
                 });
             }
         }
-
+*/
         return true;
     }
 }
