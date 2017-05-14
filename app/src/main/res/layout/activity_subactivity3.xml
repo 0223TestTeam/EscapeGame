@@ -12,13 +12,6 @@
         android:text="SubActivity3" />
 
     <TextView
-        android:id="@+id/tx2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="f2_0" />
-
-    <TextView
         android:id="@+id/tx3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,5 +24,12 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="f4_0" />
+
+    <TextView
+        android:id="@+id/tx5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="f5_0" />
 
 </LinearLayout>
