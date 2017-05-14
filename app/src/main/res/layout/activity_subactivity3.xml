@@ -4,38 +4,11 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <ImageView
-        android:text="Button"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/button4"
-        />
-
-    <ImageView
-        android:text="Button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/button5"
-        />
-
-    <ImageView
-        android:text="Button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/button6"
-        />
-
-    <Button
-        android:text="Button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/button7"
-        />
-
+        android:text="SubActivity3" />
 
 </LinearLayout>
