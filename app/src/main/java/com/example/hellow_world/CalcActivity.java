@@ -12,7 +12,7 @@ import android.widget.ImageView;
  * Created by primenote on 2017/05/14.
  */
 
-public class CalcPicture {
+public class CalcActivity {
 
     public static void getDisplaySize(Activity activity){
         Display display = activity.getWindowManager().getDefaultDisplay();
@@ -21,17 +21,16 @@ public class CalcPicture {
         Log.d("Size", "X:" + point.x + ",Y:" + point.y);
     }
 
-    public static void calcPicture(Activity activity,Activity activity2){
+    public static void calcBackground(Activity activity, ImageView imageview){
 
         WindowManager wm = activity.getWindowManager();
         final Display disp = wm.getDefaultDisplay();
+        final ImageView img = imageview;
+        ViewGroup.LayoutParams params = img.getLayoutParams();
 
-        //final ImageView img = (ImageView) findViewById(R.id.imageView1);
-//        ViewGroup.LayoutParams params = img.getLayoutParams();
-//
-//        //  横幅のみ画面サイズに変更
-//        params.width = disp.getWidth();
-//        img.setLayoutParams(params);
+        //  横幅のみ画面サイズに変更
+        params.width = disp.getWidth();
+        img.setLayoutParams(params);
     }
 
 }

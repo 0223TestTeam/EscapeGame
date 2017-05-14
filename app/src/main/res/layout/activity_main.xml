@@ -6,16 +6,19 @@
     android:layout_height="fill_parent"
     android:id="@+id/layout1"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/background1"
-        android:src="@drawable/backgrounddarkness"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/background2"
-        android:src="@drawable/backgroundbright"/>
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/backgroundbright" />
+
+    <include layout="@layout/waku" android:id="@+id/include_views2"/>
+    <include layout="@layout/item_layout" android:id="@+id/include_views1"/>
+
+
 </RelativeLayout>
-
-

@@ -5,8 +5,12 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import static com.example.hellow_world.Define.*;
@@ -30,8 +34,8 @@ public class MainActivity extends Activity {
 
 
 //        if(state[0]==0){
-            findViewById(R.id.background1).setVisibility(View.VISIBLE);
-            findViewById(R.id.background2).setVisibility(View.INVISIBLE);
+            //findViewById(R.id.background1).setVisibility(View.VISIBLE);
+            //findViewById(R.id.background2).setVisibility(View.INVISIBLE);
 //        }else if(state[0]==1){
 //            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
 //            findViewById(R.id.background2).setVisibility(View.VISIBLE);
@@ -45,32 +49,11 @@ public class MainActivity extends Activity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
 
+        //背景画像のサイズ調節
+        //CalcActivity.calcBackground(this,(ImageView) findViewById(R.id.imageView1));
 
-
-        RelativeLayout r = (RelativeLayout)findViewById(R.id.layout1);
-        Point view = SizeCheck.getViewSize(r);
-        Point disp = SizeCheck.getDisplaySize(this);
-        Log.d("Size", "X:" + disp.x + ",Y:" + disp.y);
-
-        //LinearLayout r = (LinearLayout)findViewById(R.id.include_views1);
-        //CalcPicture.getDisplaySize(this);
 
         /*
-        LinearLayout r = (LinearLayout)findViewById(R.id.include_views1);
-        DisplaySizeCheck.getDisplaySize(this);
-        Log.d("viewSize", "X:" + r.getWidth() + ",Y:" + r.getHeight());
-
-
-        WindowManager wm = getWindowManager();
-        final Display disp = wm.getDefaultDisplay();
-
-        final ImageView img = (ImageView) findViewById(R.id.imageView1);
-        ViewGroup.LayoutParams params = img.getLayoutParams();
-
-        //  横幅のみ画面サイズに変更
-        params.width = disp.getWidth();
-        img.setLayoutParams(params);
-
         float scaleX = disp.getWidth() / 600;
         float scaleY = disp.getHeight() /  1200;
 
