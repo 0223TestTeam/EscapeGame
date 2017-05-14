@@ -7,13 +7,20 @@
 
 
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/backgroundbright" />
+    <!--<ImageView-->
+        <!--android:id="@+id/background1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/backgrounddarkness" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/background2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/backgroundbright" />-->
 
     <include layout="@layout/waku" android:id="@+id/include_views2"/>
     <include layout="@layout/item_layout" android:id="@+id/include_views1"/>

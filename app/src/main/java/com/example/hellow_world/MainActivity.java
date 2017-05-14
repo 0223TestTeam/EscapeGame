@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 
 import static com.example.hellow_world.Define.REQ_SUB1;
@@ -34,10 +35,10 @@ public class MainActivity extends Activity {
 
 
 
-//        if(state[0]==0){
-            //findViewById(R.id.background1).setVisibility(View.VISIBLE);
-            //findViewById(R.id.background2).setVisibility(View.INVISIBLE);
-//        }else if(state[0]==1){
+//       if(common.getFlag1()==false){
+//            findViewById(R.id.background1).setVisibility(View.VISIBLE);
+//            findViewById(R.id.background2).setVisibility(View.INVISIBLE);
+//        }else if(common.getFlag1()==true){
 //            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
 //            findViewById(R.id.background2).setVisibility(View.VISIBLE);
 //        }
@@ -51,7 +52,16 @@ public class MainActivity extends Activity {
         super.onWindowFocusChanged(hasFocus);
 
         //背景画像のサイズ調節
-        CalcActivity.calcBackground(this,(ImageView) findViewById(R.id.imageView1));
+        int backid;
+        if(common.getFlag1()==false){
+            backid=R.id. background1;
+        }else{
+            backid=R.id. background2;
+        }
+
+
+
+        //CalcActivity.calcBackground(this,(ImageView) findViewById(backid));
         Display display = this.getWindowManager().getDefaultDisplay();
         Point point = new Point();
         display.getSize(point);
@@ -84,7 +94,7 @@ public class MainActivity extends Activity {
 
             if (flag1==false){
                 if (0<y && y<200 ){
-                    Intent intent = new Intent(getApplication(),SubActivity111.class);
+                    Intent intent = new Intent(getApplication(),SubActivity1.class);
                     startActivityForResult(intent , REQ_SUB1);
                     flag1 = true;
                 }else if (1700<x && x<1920){
