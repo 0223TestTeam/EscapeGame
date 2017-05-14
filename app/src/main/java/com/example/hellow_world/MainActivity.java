@@ -119,20 +119,23 @@ public class MainActivity extends Activity {
 
     protected void onActivityResult(int requestCode , int resultCode , Intent intent){
         super.onActivityResult(requestCode,resultCode,intent);
-        if (resultCode == RESULT_OK && requestCode == REQ_SUB1 && intent != null){
-//            if(state[0]==1){
-//                findViewById(R.id.background1).setVisibility(View.INVISIBLE);
-//                findViewById(R.id.background2).setVisibility(View.VISIBLE);
-//            }
+        flag1=false;
 
-            flag1 = false;
-        }
-        if (resultCode == RESULT_OK && requestCode == REQ_SUB2 && intent != null){
 
-            flag1 = false;
-        }
-        if (resultCode == RESULT_OK && requestCode == REQ_SUB3 && intent != null){
-            flag1 = false;
-        }
+//        if (resultCode == RESULT_OK && requestCode == REQ_SUB1 && intent != null){
+////            if(state[0]==1){
+////                findViewById(R.id.background1).setVisibility(View.INVISIBLE);
+////                findViewById(R.id.background2).setVisibility(View.VISIBLE);
+////            }
+//
+//            flag1 = false;
+//        }
+//        if (resultCode == RESULT_OK && requestCode == REQ_SUB2 && intent != null){
+//
+//            flag1 = false;
+//        }
+//        if (resultCode == RESULT_OK && requestCode == REQ_SUB3 && intent != null){
+//            flag1 = false;
+//        }
     }
 }
