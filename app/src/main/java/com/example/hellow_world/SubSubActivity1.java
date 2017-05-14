@@ -15,8 +15,6 @@ import static com.example.hellow_world.Define.*;
 
 public class SubSubActivity1 extends Activity{
     boolean flag=false;
-    int[] state = new int[3];
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,20 +22,18 @@ public class SubSubActivity1 extends Activity{
         // 現在のintentを取得する
         Intent intent = getIntent();
         // intentから指定キーの数字列を取得する
-        state=intent.getIntArrayExtra("state");
-        if(state[0]==0){
+        //if(state[0]==0){
             findViewById(R.id.background1).setVisibility(View.VISIBLE);
             findViewById(R.id.background2).setVisibility(View.INVISIBLE);
-        }else{
-            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
-            findViewById(R.id.background2).setVisibility(View.VISIBLE);
-        }
+//        }else{
+//            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
+//            findViewById(R.id.background2).setVisibility(View.VISIBLE);
+//        }
 
     }
 
     public void back(View v){
         Intent intent = new Intent();
-        intent.putExtra("state",state);
         setResult(RESULT_OK,intent);
         finish();
     }
@@ -49,7 +45,7 @@ public class SubSubActivity1 extends Activity{
         Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
         if(flag==false) {
             if (550 < event.getY() && event.getY() < 800 && 600 < event.getX() && event.getX() < 1300) {
-                    state[1] = 1;
+                    //state[1] = 1;
                 flag=true;
                 Log.d("Getmatch", "match");
             }

@@ -38,7 +38,6 @@ public class SubActivity1 extends Activity{
 
     public void back(View v){
         Intent intent = new Intent();
-        intent.putExtra("state",state);
         setResult(RESULT_OK,intent);
         finish();
     }

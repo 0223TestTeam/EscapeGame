@@ -5,13 +5,8 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import static com.example.hellow_world.Define.*;
@@ -24,7 +19,6 @@ public class MainActivity extends Activity {
 
     boolean flag1 = false;
 
-    int[] state = new int[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +29,13 @@ public class MainActivity extends Activity {
 
 
 
-        if(state[0]==0){
+//        if(state[0]==0){
             findViewById(R.id.background1).setVisibility(View.VISIBLE);
             findViewById(R.id.background2).setVisibility(View.INVISIBLE);
-        }else if(state[0]==1){
-            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
-            findViewById(R.id.background2).setVisibility(View.VISIBLE);
-        }
+//        }else if(state[0]==1){
+//            findViewById(R.id.background1).setVisibility(View.INVISIBLE);
+//            findViewById(R.id.background2).setVisibility(View.VISIBLE);
+//        }
 
     }
 
@@ -95,28 +89,24 @@ public class MainActivity extends Activity {
         if (flag1==false){
             if (0<event.getY() && event.getY()<200 ){
                 Intent intent = new Intent(getApplication(),SubActivity1.class);
-                intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB1);
                 flag1 = true;
             }
 
             if (1700<event.getX() && event.getX()<1920){
                 Intent intent = new Intent(getApplication(),SubActivity2.class);
-                intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB2);
                 flag1 = true;
             }
 
             if (0<event.getX() && event.getX()<200){
                 Intent intent = new Intent(getApplication(),SubActivity3.class);
-                intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB3);
                 flag1 = true;
             }
 
             if (1000<event.getY() && event.getY()<1104){
                 Intent intent = new Intent(getApplication(),SubActivity3.class);
-                intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB4);
                 flag1 = true;
             }
@@ -129,21 +119,19 @@ public class MainActivity extends Activity {
 
     protected void onActivityResult(int requestCode , int resultCode , Intent intent){
         super.onActivityResult(requestCode,resultCode,intent);
-        state=intent.getIntArrayExtra("state");
         if (resultCode == RESULT_OK && requestCode == REQ_SUB1 && intent != null){
-            if(state[0]==1){
-                findViewById(R.id.background1).setVisibility(View.INVISIBLE);
-                findViewById(R.id.background2).setVisibility(View.VISIBLE);
-            }
+//            if(state[0]==1){
+//                findViewById(R.id.background1).setVisibility(View.INVISIBLE);
+//                findViewById(R.id.background2).setVisibility(View.VISIBLE);
+//            }
 
             flag1 = false;
         }
         if (resultCode == RESULT_OK && requestCode == REQ_SUB2 && intent != null){
-            intent.getIntArrayExtra("state");
+
             flag1 = false;
         }
         if (resultCode == RESULT_OK && requestCode == REQ_SUB3 && intent != null){
-            intent.getIntArrayExtra("state");
             flag1 = false;
         }
     }
