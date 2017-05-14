@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
+import android.view.GestureDetector;
 
 import static com.example.hellow_world.Define.*;
 
@@ -26,11 +27,12 @@ import static com.example.hellow_world.Define.*;
 
 public class SubActivity2 extends Activity {
 
-    int[] state = new int[3];
     private UtilCommon Flag;
 
     private DialogFragment dialogFragment;
     private FragmentManager flagmentManager;
+
+    GestureDetector gd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class SubActivity2 extends Activity {
         // intentから指定キーの数字列を取得する
         // state = intent.getIntArrayExtra("state");
 
-        UtilCommon Flag = (UtilCommon) this.getApplication();
+        Flag = (UtilCommon) this.getApplication();
 
         //if (state[0] == 1) {
         if(Flag.getFlag2() == false){ // 明かりがついていない
@@ -58,6 +60,17 @@ public class SubActivity2 extends Activity {
             findViewById(R.id.background2).setVisibility(View.INVISIBLE);
 
         }
+
+        gd = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e) {
+                return false;
+            }
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                return true;
+            }
+        });
 
     }
 
@@ -76,18 +89,21 @@ public class SubActivity2 extends Activity {
         y = event.getY();
         Log.d("Touchivemnt", "X:" + x + ",Y:" + y);
 
+        boolean touchUp = gd.onTouchEvent(event);
 
-        if (Flag.getFlag6()==false) {
-            if (BOX_LEFT < x && x < BOX_RIGHT && BOX_UP < y && y < BOX_DOWN) {
-                Log.d("TouchBOX", "X:" + x + ",Y:" + y);
-                flagmentManager = getFragmentManager();
-                NumberPickerDialog dialog = new NumberPickerDialog();
-                dialog.show(flagmentManager, "dialog");
+        if (touchUp == true) {
+            if (Flag.getFlag6() == false) {
+                if (BOX_LEFT < x && x < BOX_RIGHT && BOX_UP < y && y < BOX_DOWN) {
+                    Log.d("TouchBOX", "X:" + x + ",Y:" + y);
+                    flagmentManager = getFragmentManager();
+                    NumberPickerDialog dialog = new NumberPickerDialog();
+                    dialog.show(flagmentManager, "dialog");
+                }
+            } else {
+                Intent intent = new Intent(getApplication(), SubSubActivity2.class);
+                int requestCode = REQ_SUBSUB2;
+                startActivityForResult(intent, requestCode);
             }
-        } else {
-            Intent intent = new Intent(getApplication(), SubSubActivity2.class);
-            int requestCode = REQ_SUBSUB2;
-            startActivityForResult(intent, requestCode);
         }
 
         return true;
