@@ -64,6 +64,7 @@ public class SubActivity3 extends Activity{
         }
 
         /* 画像を使用する場合 */
+
 //        if (state[3] == 1) {
 //            findViewById(R.id.imageView7).setVisibility(View.INVISIBLE);
 //            findViewById(R.id.imageView8).setVisibility(View.VISIBLE);

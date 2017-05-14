@@ -16,20 +16,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="flag2 0" />
+        android:text="f3_0" />
 
     <TextView
-        android:id="@+id/tx_4"
+        android:id="@+id/tx4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="flag3 0" />
+        android:text="f4_0" />
 
     <TextView
-        android:id="@+id/"
+        android:id="@+id/tx5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="f5_0" />
 
 </LinearLayout>
