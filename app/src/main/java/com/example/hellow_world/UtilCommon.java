@@ -17,7 +17,7 @@ public class UtilCommon extends Application {
     private boolean mGlobal;  // boolean型のグローバル変数
 
     private boolean flag1=false,
-            flag2 = true,
+            flag2 = false,
             flag3 = false,
             flag4 = false,
             flag5 = false;

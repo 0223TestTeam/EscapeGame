@@ -2,18 +2,14 @@ package com.example.hellow_world;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-import static com.example.hellow_world.Define.*;
+import static com.example.hellow_world.Define.REQ_SUB1;
+import static com.example.hellow_world.Define.REQ_SUB2;
+import static com.example.hellow_world.Define.REQ_SUB3;
+import static com.example.hellow_world.Define.REQ_SUB4;
 
 /**
  * Created by ServoRobo on 2017/02/23.
