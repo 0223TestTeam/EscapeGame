@@ -16,20 +16,18 @@ public class UtilCommon extends Application {
     private static final String TAG = "UtilCommon";
     private boolean mGlobal;  // boolean型のグローバル変数
 
-    private boolean flag1,flag2,flag3,flag4,flag5;
+    private boolean flag1=false,
+            flag2 = true,
+            flag3 = false,
+            flag4 = false,
+            flag5 = false;
 
     /**
      * アプリケーションの起動時に呼び出される
      */
     @Override
     public void onCreate() {
-        super.onCreate();
-        Log.d(TAG, "onCreate");
-        flag1=false;
-        flag2=false;
-        flag3=false;
-        flag4=false;
-        flag5=false;
+
     }
 
     /**

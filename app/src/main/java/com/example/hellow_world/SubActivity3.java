@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by ServoRobo on 2017/02/23.
@@ -22,9 +23,10 @@ import android.widget.EditText;
 
 public class SubActivity3 extends Activity{
 
-    boolean flag = false; //ウィジャ盤へのタッチフラグ
     private DialogFragment dialogFragment;
     private FragmentManager flagmentManager;
+
+    private UtilCommon Flag2, Flag3, Flag4;
 
     GestureDetector gd;
 
@@ -33,6 +35,7 @@ public class SubActivity3 extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subactivity3);
 
+        //ジェスチャー用
         gd = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
 
             @Override
@@ -47,11 +50,15 @@ public class SubActivity3 extends Activity{
 
         });
 
-        /* 現在のintentを取得する */
-//        Intent intent = getIntent();
+        //テスト用
+        Flag2 = (UtilCommon) this.getApplication();
+        Flag3 = (UtilCommon) this.getApplication();
+        Flag4 = (UtilCommon) this.getApplication();
 
-        /* intentから指定キーの数字列を取得する*/
-//        intent.getIntArrayExtra("state");
+        //フラグ状況を表示(テスト用)
+        if(Flag2.getFlag2() == true){
+            ((TextView) findViewById(R.id.tx2)).setText("flag up 2");
+        }
 
         /* 画像を使用する場合 */
 //        if (state[3] == 1) {
@@ -72,25 +79,24 @@ public class SubActivity3 extends Activity{
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
         boolean touchUp = gd.onTouchEvent(event);
 
-        float x = event.getX();
-        float y = event.getY();
+//        float x = event.getX();
+//        float y = event.getY();
+//
+//        Log.d("SA3Touchivemnt", "X:" + x + ",Y:" + y);
 
-        Log.d("SA3Touchivemnt", "X:" + x + ",Y:" + y);
-
-        if (flag==false){
-
+        if (Flag2.getFlag2() == true){
             if(touchUp == true){ /*if (1640 < y && y < 1950 && 400 < x && x < 830){*/
                 flagmentManager = getFragmentManager();
-
                 // DialogFragment を継承したAlertDialogFragmentのインスタンス
                 dialogFragment = new TestDialogFragment();
                 // DialogFragmentの表示
                 dialogFragment.show(flagmentManager, "dialog");
-
-                flag = true;
             }
+            Flag3.setFlag3(true);
+            ((TextView) findViewById(R.id.tx2)).setText("flag up 3");
         }
         return true;
     }
@@ -117,7 +123,8 @@ public class SubActivity3 extends Activity{
 
                             //「play」が入力されてokが押されたらf4を変更
                             if(editText.getText().toString().equals("play")){
-//                                flag4 = true;
+                                Flag4.setFlag4(true); //フラグ４をup
+                                ((TextView) findViewById(R.id.tx2)).setText("flag up 4");
                             }else{
                                 //何もしない
                             }
@@ -139,7 +146,6 @@ public class SubActivity3 extends Activity{
         super.onActivityResult(requestCode,resultCode,intent);
         if (requestCode == RESULT_OK && resultCode == 1100 && intent != null){
             intent.getIntArrayExtra("state");
-            flag = false;
         }
     }
 }
