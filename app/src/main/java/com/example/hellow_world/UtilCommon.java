@@ -20,7 +20,7 @@ public class UtilCommon extends Application {
 
     public boolean flag1=false,
             flag2 = false,
-            flag3 = false,
+            flag3 = true,
             flag4 = false,
             flag5 = false,
             flag6 = false;

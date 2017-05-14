@@ -26,6 +26,7 @@ public class SubActivity3 extends Activity{
     private DialogFragment dialogFragment;
     private FragmentManager flagmentManager;
     private UtilCommon Flag;
+    private UtilCommon common;
 
     GestureDetector gd;
 
@@ -51,7 +52,7 @@ public class SubActivity3 extends Activity{
 
         Flag = (UtilCommon) this.getApplication();
 
-        //フラグ状況を表示(テスト用)
+        // フラグ状況を表示(テスト用)
         if(Flag.getFlag3() == true){
             ((TextView) findViewById(R.id.tx3)).setText("f3_1");
         }
