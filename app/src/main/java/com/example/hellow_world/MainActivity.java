@@ -23,8 +23,6 @@ import static com.example.hellow_world.Define.*;
 public class MainActivity extends Activity {
 
     boolean flag1 = false;
-    boolean flag2 = false;
-    boolean flag3 = false;
 
     int[] state = new int[3];
 
@@ -32,6 +30,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //グローバル変数
+        UtilCommon common = (UtilCommon)getApplication();
+
+
+
         if(state[0]==0){
             findViewById(R.id.background1).setVisibility(View.VISIBLE);
             findViewById(R.id.background2).setVisibility(View.INVISIBLE);
@@ -47,6 +50,9 @@ public class MainActivity extends Activity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+
+
+
         RelativeLayout r = (RelativeLayout)findViewById(R.id.layout1);
         Point view = SizeCheck.getViewSize(r);
         Point disp = SizeCheck.getDisplaySize(this);
