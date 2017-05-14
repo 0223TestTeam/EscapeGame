@@ -52,10 +52,10 @@ public class SubActivity3 extends Activity{
 
         if (flag==false){
             if (1640 < y && y < 1950 && 400 < x && x < 830){
-                Intent intent = new Intent(getApplication(),OuijaBoardActivity.class);
-                intent.putExtra("state",state);
-                startActivityForResult(intent , 1100);
-                flag = true;
+//                Intent intent = new Intent(getApplication(),OuijaBoardActivity.class);
+//                intent.putExtra("state",state);
+//                startActivityForResult(intent , 1100);
+//                flag = true;
             }
         }
         return true;
