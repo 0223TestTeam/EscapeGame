@@ -20,7 +20,7 @@ public class SubSubActivity2 extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subactivity1);
+        setContentView(R.layout.activity_subactivity2);
         // 現在のintentを取得する
         Intent intent = getIntent();
 

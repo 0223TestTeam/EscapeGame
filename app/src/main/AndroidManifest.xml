@@ -44,6 +44,10 @@
             android:name=".SubSubActivity1"
             android:screenOrientation="landscape">
         </activity>
+        <activity
+            android:name=".SubSubActivity2"
+            android:screenOrientation="landscape">
+        </activity>
 
     </application>
 
