@@ -52,10 +52,15 @@ public class MainActivity extends Activity {
         Point disp = SizeCheck.getDisplaySize(this);
         Log.d("Size", "X:" + disp.x + ",Y:" + disp.y);
 
+        //LinearLayout r = (LinearLayout)findViewById(R.id.include_views1);
+        //CalcPicture.getDisplaySize(this);
+
         /*
         LinearLayout r = (LinearLayout)findViewById(R.id.include_views1);
         DisplaySizeCheck.getDisplaySize(this);
         Log.d("viewSize", "X:" + r.getWidth() + ",Y:" + r.getHeight());
+
+
         WindowManager wm = getWindowManager();
         final Display disp = wm.getDefaultDisplay();
 
@@ -68,10 +73,10 @@ public class MainActivity extends Activity {
 
         float scaleX = disp.getWidth() / 600;
         float scaleY = disp.getHeight() /  1200;
-        Float scale = scaleX > scaleY ? scaleY : scaleX;
 
-        touchedX = event.getX() / scale;
-        touchedY = event.getY() / scale;*/
+
+        touchedX = event.getX() / scaleX;
+        touchedY = event.getY() / scaleY;*/
 
     }
 
@@ -82,36 +87,37 @@ public class MainActivity extends Activity {
         Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
 
         if (flag1==false){
-            if (700<event.getY() && event.getY()<1080 && 500<event.getX() && event.getX()<900){
+            if (0<event.getY() && event.getY()<200 ){
                 Intent intent = new Intent(getApplication(),SubActivity1.class);
                 intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB1);
                 flag1 = true;
             }
-        }/*else if (flag2==false){
-            if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
+
+            if (1700<event.getX() && event.getX()<1920){
                 Intent intent = new Intent(getApplication(),SubActivity2.class);
                 intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB2);
-                flag2 = true;
+                flag1 = true;
             }
-        }else if (state[3]==0&&flag3==false){
-            if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
+
+            if (0<event.getX() && event.getX()<200){
                 Intent intent = new Intent(getApplication(),SubActivity3.class);
                 intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB3);
-                flag3 = true;
+                flag1 = true;
             }
-        }else if(state[3]==1&&flag3==false){
-            if (1640<event.getY() && event.getY()<1950 && 400<event.getX() && event.getX()<830){
+
+            if (1000<event.getY() && event.getY()<1104){
                 Intent intent = new Intent(getApplication(),SubActivity3.class);
                 intent.putExtra("state",state);
                 startActivityForResult(intent , REQ_SUB4);
-                flag3 = true;
+                flag1 = true;
             }
+
+
         }
-        */
-        //
+
         return true;
     }
 
@@ -126,13 +132,13 @@ public class MainActivity extends Activity {
 
             flag1 = false;
         }
-        if (resultCode == RESULT_OK && requestCode == REQ_SUB1 && intent != null){
+        if (resultCode == RESULT_OK && requestCode == REQ_SUB2 && intent != null){
             intent.getIntArrayExtra("state");
-            flag2 = false;
+            flag1 = false;
         }
-        if (resultCode == RESULT_OK && requestCode == REQ_SUB1 && intent != null){
+        if (resultCode == RESULT_OK && requestCode == REQ_SUB3 && intent != null){
             intent.getIntArrayExtra("state");
-            flag3 = false;
+            flag1 = false;
         }
     }
 }

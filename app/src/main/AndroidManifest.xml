@@ -27,6 +27,14 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
+            android:name=".SubActivity2"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".SubActivity3"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
             android:name=".SubSubActivity1"
             android:screenOrientation="landscape">
         </activity>
