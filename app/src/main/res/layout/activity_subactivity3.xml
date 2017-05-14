@@ -16,6 +16,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="flag down" />
+        android:text="f2_0" />
+
+    <TextView
+        android:id="@+id/tx3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="f3_0" />
+
+    <TextView
+        android:id="@+id/tx4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="f4_0" />
 
 </LinearLayout>

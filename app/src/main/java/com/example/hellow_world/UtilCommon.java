@@ -16,8 +16,8 @@ public class UtilCommon extends Application {
     private static final String TAG = "UtilCommon";
     private boolean mGlobal;  // boolean型のグローバル変数
 
-    private boolean flag1=false,
-            flag2 = false,
+    public boolean flag1=false,
+            flag2 = true,
             flag3 = false,
             flag4 = false,
             flag5 = false;
@@ -37,11 +37,11 @@ public class UtilCommon extends Application {
     public void onTerminate() {
         super.onTerminate();
         Log.d(TAG, "onTerminate");
-        flag1=false;
-        flag2=false;
-        flag3=false;
-        flag4=false;
-        flag5=false;
+        flag1 = false;
+        flag2 = false;
+        flag3 = false;
+        flag4 = false;
+        flag5 = false;
     }
     
 

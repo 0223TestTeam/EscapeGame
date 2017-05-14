@@ -25,8 +25,8 @@ public class SubActivity3 extends Activity{
 
     private DialogFragment dialogFragment;
     private FragmentManager flagmentManager;
-
-    private UtilCommon Flag2, Flag3, Flag4;
+    private UtilCommon Flag;
+    private int Tcount = 0;
 
     GestureDetector gd;
 
@@ -50,14 +50,19 @@ public class SubActivity3 extends Activity{
 
         });
 
-        Flag2 = (UtilCommon) this.getApplication();
-        Flag3 = (UtilCommon) this.getApplication();
-        Flag4 = (UtilCommon) this.getApplication();
+        Flag = (UtilCommon) this.getApplication();
 
         //フラグ状況を表示(テスト用)
-        if(Flag2.getFlag2() == true){
-            ((TextView) findViewById(R.id.tx2)).setText("flag up 2");
+        if(Flag.getFlag2() == true){
+            ((TextView) findViewById(R.id.tx2)).setText("f2_1");
         }
+        if(Flag.getFlag3() == true){
+            ((TextView) findViewById(R.id.tx3)).setText("f3_1");
+        }
+        if(Flag.getFlag4() == true){
+            ((TextView) findViewById(R.id.tx4)).setText("f4_1");
+        }
+
 
         /* 画像を使用する場合 */
 //        if (state[3] == 1) {
@@ -86,16 +91,19 @@ public class SubActivity3 extends Activity{
 //
 //        Log.d("SA3Touchivemnt", "X:" + x + ",Y:" + y);
 
-        if (Flag2.getFlag2() == true){
-            if(touchUp == true){ /*if (1640 < y && y < 1950 && 400 < x && x < 830){*/
+        if(Flag.getFlag2() == true && Flag.getFlag3() == false){
+            if(touchUp == true){
+                Flag.setFlag3(true);
+                ((TextView) findViewById(R.id.tx3)).setText("f3_1");
+            }
+        } else if (Flag.getFlag2() == true && Flag.getFlag3() == true && Flag.getFlag4() == false){
+            if(touchUp == true) {                                        /*if (1640 < y && y < 1950 && 400 < x && x < 830){*/
                 flagmentManager = getFragmentManager();
                 // DialogFragment を継承したAlertDialogFragmentのインスタンス
                 dialogFragment = new TestDialogFragment();
                 // DialogFragmentの表示
                 dialogFragment.show(flagmentManager, "dialog");
             }
-            Flag3.setFlag3(true);
-            ((TextView) findViewById(R.id.tx2)).setText("flag up 3");
         }
         return true;
     }
@@ -122,8 +130,8 @@ public class SubActivity3 extends Activity{
 
                             //「play」が入力されてokが押されたらf4を変更
                             if(editText.getText().toString().equals("play")){
-                                Flag4.setFlag4(true); //フラグ４をup
-                                ((TextView) findViewById(R.id.tx2)).setText("flag up 4");
+                                Flag.setFlag4(true); //フラグ４をup
+                                ((TextView) findViewById(R.id.tx4)).setText("f4_1");
                             }else{
                                 //何もしない
                             }
