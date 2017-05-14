@@ -29,7 +29,7 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".SubActivity1"
+            android:name=".SubActivity111"
             android:screenOrientation="landscape">
         </activity>
         <activity

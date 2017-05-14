@@ -2,9 +2,12 @@ package com.example.hellow_world;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
+import android.widget.ImageView;
 
 import static com.example.hellow_world.Define.REQ_SUB1;
 import static com.example.hellow_world.Define.REQ_SUB2;
@@ -17,6 +20,7 @@ import static com.example.hellow_world.Define.REQ_SUB4;
 
 public class MainActivity extends Activity {
 
+    private UtilCommon common;
     boolean flag1 = false;
 
 
@@ -25,7 +29,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //グローバル変数
-        UtilCommon common = (UtilCommon)getApplication();
+        common = (UtilCommon)this.getApplication();
+
 
 
 
@@ -46,52 +51,63 @@ public class MainActivity extends Activity {
         super.onWindowFocusChanged(hasFocus);
 
         //背景画像のサイズ調節
-        //CalcActivity.calcBackground(this,(ImageView) findViewById(R.id.imageView1));
+        CalcActivity.calcBackground(this,(ImageView) findViewById(R.id.imageView1));
+        Display display = this.getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        display.getSize(point);
 
+        float scalex=point.x;
+        float scaley=point.y;
 
-        /*
-        float scaleX = disp.getWidth() / 600;
-        float scaleY = disp.getHeight() /  1200;
+        scalex=scalex/1920;
+        scaley=scaley/1104;
 
+        common.setScaleX(scalex);
+        common.setScaleY(scaley);
 
-        touchedX = event.getX() / scaleX;
-        touchedY = event.getY() / scaleY;*/
+        Log.d("Scalebefore", "X:" + point.x + ",Y:" + point.y);
+        Log.d("Scale", "X:" + common.getScaleX() + ",Y:" + common.getScaleY());
 
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Boolean flag=false;
+        if(flag==false){
+            flag=true;
+            Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
 
+            float x=event.getX()/common.getScaleX();
+            float y=event.getY()/common.getScaleY();
 
-        Log.d("Touchivemnt", "X:" + event.getX() + ",Y:" + event.getY());
+            Log.d("Touchivemnt2", "X:" + x + ",Y:" + y);
 
-        if (flag1==false){
-            if (0<event.getY() && event.getY()<200 ){
-                Intent intent = new Intent(getApplication(),SubActivity1.class);
-                startActivityForResult(intent , REQ_SUB1);
-                flag1 = true;
+            if (flag1==false){
+                if (0<y && y<200 ){
+                    Intent intent = new Intent(getApplication(),SubActivity111.class);
+                    startActivityForResult(intent , REQ_SUB1);
+                    flag1 = true;
+                }else if (1700<x && x<1920){
+                    Intent intent = new Intent(getApplication(),SubActivity2.class);
+                    startActivityForResult(intent , REQ_SUB2);
+                    flag1 = true;
+                }else if (0<x && x<200){
+                    Intent intent = new Intent(getApplication(),SubActivity3.class);
+                    startActivityForResult(intent , REQ_SUB3);
+                    flag1 = true;
+                }else if (1000<y && y<1104){
+                    Intent intent = new Intent(getApplication(),SubActivity3.class);
+                    startActivityForResult(intent , REQ_SUB4);
+                    flag1 = true;
+                }
+
+                flag=false;
             }
-
-            if (1700<event.getX() && event.getX()<1920){
-                Intent intent = new Intent(getApplication(),SubActivity2.class);
-                startActivityForResult(intent , REQ_SUB2);
-                flag1 = true;
-            }
-
-            if (0<event.getX() && event.getX()<200){
-                Intent intent = new Intent(getApplication(),SubActivity3.class);
-                startActivityForResult(intent , REQ_SUB3);
-                flag1 = true;
-            }
-
-            if (1000<event.getY() && event.getY()<1104){
-                Intent intent = new Intent(getApplication(),SubActivity3.class);
-                startActivityForResult(intent , REQ_SUB4);
-                flag1 = true;
-            }
-
 
         }
+
+
+
 
         return true;
     }

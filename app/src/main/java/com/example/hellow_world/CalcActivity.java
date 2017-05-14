@@ -30,7 +30,7 @@ public class CalcActivity {
 
         //  横幅のみ画面サイズに変更
         params.width = disp.getWidth();
+        params.height = disp.getHeight();
         img.setLayoutParams(params);
     }
-
 }

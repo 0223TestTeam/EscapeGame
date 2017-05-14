@@ -16,12 +16,15 @@ public class UtilCommon extends Application {
     private static final String TAG = "UtilCommon";
     private boolean mGlobal;  // boolean型のグローバル変数
 
+    private  float scaleX=0,scaleY=0;
+
     public boolean flag1=false,
             flag2 = false,
             flag3 = false,
             flag4 = false,
             flag5 = false,
             flag6 = false;
+
 
     /**
      * アプリケーションの起動時に呼び出される
@@ -44,6 +47,8 @@ public class UtilCommon extends Application {
         flag4 = false;
         flag5 = false;
         flag6 = false;
+        scaleX=0;
+        scaleY=0;
     }
     
 
@@ -75,6 +80,15 @@ public class UtilCommon extends Application {
     public void setFlag6(boolean bool) {
         Log.d(TAG, "setFlag6");
         flag6 = bool;
+    }
+
+    public void setScaleX(float scale){
+        Log.d(TAG, "seScaleX");
+        scaleX=scale;
+    }
+    public void setScaleY(float scale){
+        Log.d(TAG, "seScaleY");
+        scaleY=scale;
     }
 
     /**
@@ -109,5 +123,15 @@ public class UtilCommon extends Application {
     public boolean getFlag6() {
         Log.d(TAG, "getFlag6");
         return flag6;
+    }
+
+    public float getScaleX() {
+        Log.d(TAG, "getScalX");
+        return scaleX;
+    }
+
+    public  float getScaleY(){
+        Log.d(TAG, "getScaleY");
+        return scaleY;
     }
 }
