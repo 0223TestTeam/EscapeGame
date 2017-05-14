@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/backgroundbright" />
+        android:src="@drawable/backgroundbright" />
 
     <include layout="@layout/waku" android:id="@+id/include_views2"/>
     <include layout="@layout/item_layout" android:id="@+id/include_views1"/>

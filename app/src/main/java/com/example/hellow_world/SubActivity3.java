@@ -50,7 +50,6 @@ public class SubActivity3 extends Activity{
 
         });
 
-        //テスト用
         Flag2 = (UtilCommon) this.getApplication();
         Flag3 = (UtilCommon) this.getApplication();
         Flag4 = (UtilCommon) this.getApplication();
