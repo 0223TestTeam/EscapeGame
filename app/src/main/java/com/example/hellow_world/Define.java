@@ -18,13 +18,13 @@ public class Define{
     public static final int REQ_SUB4 = 4000;
 
     public static final float BOX_LEFT = 0;
-    public static final float BOX_RIGHT = 0;
+    public static final float BOX_RIGHT = 2000;
     public static final float BOX_UP = 0;
-    public static final float BOX_DOWN = 0;
+    public static final float BOX_DOWN = 2000;
 
     public static final int BOX_KEY_0 = 0;
-    public static final int BOX_KEY_1 = 1;
-    public static final int BOX_KEY_2 = 2;
-    public static final int BOX_KEY_3 = 3;
+    public static final int BOX_KEY_1 = 0;
+    public static final int BOX_KEY_2 = 0;
+    public static final int BOX_KEY_3 = 0;
 
 }

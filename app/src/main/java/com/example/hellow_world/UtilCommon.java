@@ -17,10 +17,11 @@ public class UtilCommon extends Application {
     private boolean mGlobal;  // boolean型のグローバル変数
 
     public boolean flag1=false,
-            flag2 = true,
+            flag2 = false,
             flag3 = false,
             flag4 = false,
-            flag5 = false;
+            flag5 = false,
+            flag6 = false;
 
     /**
      * アプリケーションの起動時に呼び出される
@@ -42,6 +43,7 @@ public class UtilCommon extends Application {
         flag3 = false;
         flag4 = false;
         flag5 = false;
+        flag6 = false;
     }
     
 
@@ -68,6 +70,11 @@ public class UtilCommon extends Application {
     public void setFlag5(boolean bool) {
         Log.d(TAG, "setFlag5");
         flag5 = bool;
+    }
+
+    public void setFlag6(boolean bool) {
+        Log.d(TAG, "setFlag6");
+        flag6 = bool;
     }
 
     /**
@@ -99,4 +106,8 @@ public class UtilCommon extends Application {
         return flag5;
     }
 
+    public boolean getFlag6() {
+        Log.d(TAG, "getFlag6");
+        return flag6;
+    }
 }

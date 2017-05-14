@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+
+
 import static com.example.hellow_world.Define.*;
 
 /**
